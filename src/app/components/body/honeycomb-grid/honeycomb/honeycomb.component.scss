@@ -1,0 +1,94 @@
+$hexagon-width: 250px;
+$hexagon-height: $hexagon-width*.55;
+$hexagon-margin: 25px;
+$hexagon-title-color: #fff;
+$hexagon-border-color: #39CCCC;
+$hexagon-border-color--hover: rgb(255, 132, 0);
+$hexagon-image-color: #001F3F;
+$honeycomb-max-width: 1200px;
+$viewport-thereshold: $hexagon-width + $hexagon-margin;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.honeycomb {
+    &-cell {
+    flex: 0 1 $hexagon-width;
+    max-width: $hexagon-width;
+    height: $hexagon-height;
+    margin: $hexagon-height/2.1 $hexagon-margin/2 $hexagon-margin;
+    position: relative;
+    padding: 0.5em;
+
+    text-align: center;
+    z-index: 1;
+
+
+    &__title {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      hyphens: auto;
+      word-break: break-word;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.75em;
+      transition: opacity 350ms;
+      
+      > small {
+        font-weight: 300;
+        margin-top: 0.25em;
+      }
+    }
+    &__image {
+        object-fit: cover;
+        object-position: center;
+      }
+      
+      &::before, &::after {
+        content: '';
+      }
+  
+      &::before, &::after, &__image {
+        top: -50%;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        display: block;
+        position: absolute;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        z-index: -1;
+      }
+  
+      &::before {
+        background: $hexagon-border-color;
+        transform: scale(1.055);
+      }
+  
+      &::after {
+        background: $hexagon-image-color;
+        opacity: 0.5;
+        transition: opacity 350ms;
+      }
+  
+      &:hover {
+        
+        .honeycomb-cell__title {
+          opacity: 50;
+          color: rgb(255, 132, 0);
+          text-shadow: 2px 0 black, -2px 0 black, 0 -2px black, 0 2px black, 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+        }
+        
+        &::before {
+          background: $hexagon-border-color--hover;
+        }
+  
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+}

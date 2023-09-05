@@ -1,0 +1,54 @@
+header {
+    max-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #001F3F;
+    color: #FFFFFF;
+    font-family: 'Exo', sans-serif;
+  }
+
+  .company {
+    display: inline-block;
+    margin: 25px;
+    vertical-align: top;
+  }
+  .logo {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .logo img {
+    max-width: 100px;
+  }
+
+  .login-image {
+    height: 40px;
+    width: 40px;
+    border-radius: 25%;
+    opacity: 0.75;
+  }
+
+  .login-image:hover{
+    opacity: 0.25;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #39CCCC;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+ nav ul li a:hover {
+    color: #FFFFFF;
+  }
