@@ -21,12 +21,13 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
     max-width: $honeycomb-max-width;
     margin: 0 auto;
     padding: 0;
-    transform: translateY(#{$hexagon-height/4});/* 
+    transform: translateY(#{$hexagon-height/4}); 
   
     &-cell {
       flex: 0 1 $hexagon-width;
       max-width: $hexagon-width;
       height: $hexagon-height;
+      width: $hexagon-width;
       margin: $hexagon-height/2.1 $hexagon-margin/2 $hexagon-margin;
       position: relative;
       padding: 0.5em;
@@ -57,9 +58,9 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
       &__image {
         object-fit: cover;
         object-position: center;
-      } */
+      }
       
-      /* &::before, &::after {
+    &::before, &::after {
         content: '';
       }
   
@@ -109,7 +110,7 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
       width: $hexagon-width;
       margin: 0 $hexagon-margin/2;
     }
-  } */
+  }
   
   @media (max-width:#{2*$viewport-thereshold}){
     .honeycomb-cell {
@@ -155,4 +156,3 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
       display:block;
     }
   }
-}
