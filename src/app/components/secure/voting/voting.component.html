@@ -1,0 +1,16 @@
+<div class="voting-container">
+    <h2>Vote for Your Favorite Subjects</h2>
+  
+    <!-- Display the voting subjects -->
+    <div *ngFor="let subject of votingSubjects" class="voting-subject">
+      <h3>{{ subject.title }}</h3>
+      <div class="voting-options">
+        <!-- Display the voting options for each subject -->
+        <div *ngFor="let option of subject.options" class="voting-option">
+          <p>{{ option.title }}</p>
+          <button (click)="vote(subject, option)">Vote</button>
+          <span class="vote-count">Votes: {{ option.votes }}</span>
+        </div>
+      </div>
+    </div>
+  </div>

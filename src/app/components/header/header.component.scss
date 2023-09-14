@@ -8,6 +8,12 @@ header {
     color: #FFFFFF;
     font-family: 'Exo', sans-serif;
   }
+  h2{
+
+  }
+  h3 span {
+    color: orange;
+  }
 
   .company {
     display: inline-block;
@@ -25,7 +31,6 @@ header {
 
   .login-image {
     height: 40px;
-    width: 40px;
     border-radius: 25%;
     opacity: 0.75;
   }

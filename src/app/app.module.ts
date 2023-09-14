@@ -11,6 +11,8 @@ import { HoneycombGridComponent } from './components/body/honeycomb-grid/honeyco
 import { HoneycombComponent } from './components/body/honeycomb-grid/honeycomb/honeycomb.component';
 import { LoginComponent } from './components/login/login.component';
 import { SecureComponent } from './components/secure/secure.component';
+import { JoinCardsComponent } from './components/body/join-cards/join-cards.component';
+import { VotingComponent } from './components/secure/voting/voting.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { SecureComponent } from './components/secure/secure.component';
     HoneycombComponent,
     LoginComponent,
     SecureComponent,
+    JoinCardsComponent,
+    VotingComponent,
   ],
   imports: [
     BrowserModule,
