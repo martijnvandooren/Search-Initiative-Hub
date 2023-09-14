@@ -6,7 +6,7 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit {
-  communityMembers = 4567; // Replace with your actual number
+  communityMembers = 538; // Replace with your actual number
   countingNumber = "";
 
   constructor(private el: ElementRef) {}

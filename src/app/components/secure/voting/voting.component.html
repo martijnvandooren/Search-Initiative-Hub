@@ -1,15 +1,27 @@
 <div class="voting-container">
-    <h2>Vote for Your Favorite Subjects</h2>
+    <h2 class="heading">Vote for Your Favorite Subjects</h2>
   
     <!-- Display the voting subjects -->
     <div *ngFor="let subject of votingSubjects" class="voting-subject">
-      <h3>{{ subject.title }}</h3>
-      <div class="voting-options">
-        <!-- Display the voting options for each subject -->
-        <div *ngFor="let option of subject.options" class="voting-option">
-          <p>{{ option.title }}</p>
+      <h3 class="subject-title">{{ subject.title }}</h3>
+      <div *ngIf="isInitialized" class="voting-options">
+        <!-- Sort and display the voting options based on votes -->
+        <div *ngFor="let option of subject.options; let i = index" 
+        class="voting-option" 
+        [class.order-changed]="orderChanged">
+          <p class="option-title">{{ option.title }}</p>
+  
+          <!-- Horizontal voting bar -->
+          <div class="voting-bar">
+            <div
+              class="voting-fill"
+              [style.width.%]="calculatePercentage(option.votes, getTotalVotes(subject.options))"
+            >
+              {{ calculatePercentage(option.votes, getTotalVotes(subject.options)) }}%
+            </div>
+          </div>
           <button (click)="vote(subject, option)">Vote</button>
-          <span class="vote-count">Votes: {{ option.votes }}</span>
+          <span class="vote-count">{{ option.votes }} Votes</span>
         </div>
       </div>
     </div>
