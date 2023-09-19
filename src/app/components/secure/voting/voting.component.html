@@ -15,9 +15,9 @@
           <div class="voting-bar">
             <div
               class="voting-fill"
-              [style.width.%]="calculatePercentage(option.votes, getTotalVotes(subject.options))"
+              [style.width.%]="calculatePercentage(option.votes, getTotalVotes(subject.id))"
             >
-              {{ calculatePercentage(option.votes, getTotalVotes(subject.options)) }}%
+              {{ calculatePercentage(option.votes, getTotalVotes(subject.id)) }}%
             </div>
           </div>
           <button (click)="vote(subject, option)">Vote</button>

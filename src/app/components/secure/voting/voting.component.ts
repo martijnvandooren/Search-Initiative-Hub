@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VotingSubject } from 'src/app/classes/VotingSubject';
 import { VotingOption } from 'src/app/classes/VotingOption';
-import { animate, style, transition, trigger, keyframes } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { SharedService } from 'src/app/services/shared.service';
+import { VotingService } from 'src/app/services/get-votings.service';
 
 @Component({
   selector: 'app-voting',
@@ -17,39 +19,19 @@ import { animate, style, transition, trigger, keyframes } from '@angular/animati
 })
 
 export class VotingComponent implements OnInit {
+
+  constructor(private sharedService: SharedService, private votingService: VotingService) {}
+  votingSubjects: VotingSubject[] = [];
   // Define a flag to track if the order has changed
   orderChanged = false;
   isInitialized = false;
 
-  // Define an array of voting options with initial vote counts
-  votingOptions1: VotingOption[] = [
-    { id: 1, title: 'A communication network for all the planets', votes: 0 },
-    { id: 2, title: 'Design buildings on mars', votes: 0 },
-    { id: 3, title: 'Setup manufacturing in space', votes: 0 }
-    // Add more options as needed
-  ];
-  votingOptions2: VotingOption[] = [
-    { id: 1, title: 'Interplanetary Communication Technology', votes: 0 },
-    { id: 2, title: '3D printing in space', votes: 0 },
-    { id: 3, title: 'Interplanetary travel', votes: 0 }
-    // Add more options as needed
-  ];
-  votingOptions3: VotingOption[] = [
-    { id: 1, title: 'Cheap satellites for everyone', votes: 0 },
-    { id: 2, title: 'Games in space', votes: 0 },
-    { id: 3, title: 'Focus on crowdfunding and fundraising', votes: 0 }
-    // Add more options as needed
-  ];
-
-  votingSubjects: VotingSubject[] = [
-    new VotingSubject(1, 'What should be the long term goal?', this.votingOptions1),
-    new VotingSubject(1, 'What technology should be focused on right away?', this.votingOptions2),
-    new VotingSubject(1, 'What should be the initial moneymaker for the business?', this.votingOptions3)
-  ];
-
   ngOnInit(): void {
     // Set the flag to true when the component initializes
     this.isInitialized = true;
+    this.votingSubjects = this.votingService.getExampleSubjects();
+    const topSubject = this.getTopVotingSubject();
+    this.sharedService.setTopVotingSubject(topSubject);
   }
 
   // Method to handle user voting
@@ -66,15 +48,15 @@ export class VotingComponent implements OnInit {
     // Delay resetting the flag to trigger the animation
     setTimeout(() => {
       this.orderChanged = false;
-    }, 500); // Adjust the delay as needed to match your animation duration
+    }, 6000); // Adjust the delay as needed to match your animation duration
   }
 
   calculatePercentage(votes: number, totalVotes: number): number {
-    return totalVotes > 0 ? (votes / totalVotes) * 100 : 0;
+    return Math.floor(totalVotes > 0 ? (votes / totalVotes) * 100 : 0);
   }
   
-  getTotalVotes(options: VotingOption[]): number {
-    return options.reduce((total, option) => total + option.votes, 0);
+  getTotalVotes(optionsId: number): number {
+    return this.votingService.getTotalVotesOfSubject(optionsId);
   }
 
   sortedOptions(subject: VotingSubject): VotingOption[] {
@@ -83,5 +65,14 @@ export class VotingComponent implements OnInit {
 
   trackByOption(index: number, option: VotingOption): number {
     return option.id;
+  }
+
+  getTopVotingSubject(): VotingSubject {
+    // Sort the subjects based on the votes of their first option (assuming it's the highest)
+    this.votingSubjects.sort((a, b) => b.options[0].votes - a.options[0].votes);
+
+    // TODO: return null if no VotingSubjects are found.
+    // Return the top voting subject (or null if there are no subjects)
+    return this.votingSubjects.length > 0 ? this.votingSubjects[0] : this.votingSubjects[0];
   }
 }

@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SecureComponent } from './components/secure/secure.component';
 import { JoinCardsComponent } from './components/body/join-cards/join-cards.component';
 import { VotingComponent } from './components/secure/voting/voting.component';
+import { VotingService } from './services/get-votings.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { VotingComponent } from './components/secure/voting/voting.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    VotingService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
