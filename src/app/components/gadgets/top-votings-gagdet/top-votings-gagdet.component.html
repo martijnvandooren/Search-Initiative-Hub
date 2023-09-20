@@ -1,0 +1,10 @@
+<div class="votingsubjects" *ngFor="let subject of topVotingSubjects">
+    <h4>{{ subject.smallTitle }}</h4>
+    <p>{{ getMostVotedOptionTitle(subject) }}</p>
+    <div class="voting-bar">
+      <div class="voting-fill"
+        [style.width.%]="calculatePercentageMostVotedOption(subject)">
+        Votes: {{ getMostVotedOptionVotes(subject) }}
+      </div>
+    </div>
+</div>

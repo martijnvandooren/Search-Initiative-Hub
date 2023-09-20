@@ -6,58 +6,10 @@
     font-family: "Exo", sans-serif;
   }
 
-h3 {
-  background-color: orange;
-  border-radius: 30px;
-}
-
 .heading {
   color: orange;
   margin-left: 10px;
 }
-
-.voting-container {
-    font-family: "exo", sans-serif;
-    background-color: #001F3F;
-    color: #FFFFFF;
-    padding: 50px 0;
-    font-family: "Exo", sans-serif;
-}
-
-.voting-subject {
-    margin-left: 20px;
-    margin-bottom: 50px;
-}
-
-.voting-option {
-    margin-left: 20px;
-}
-
-.voting-bar {
-    width: 80%;
-    height: 20px;
-    background-color: #ddd;
-    position: relative;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 20px
-  }
-  
-  .voting-fill {
-    height: 100%;
-    background-color: #007bff;
-    color: black;
-    text-align: center;
-    line-height: 20px;
-    position: absolute;
-    transition: width 0.3s ease-in-out;
-  }
-  
-  .vote-count {
-    display: inline-block;
-    margin-left: 10px;
-    font-weight: bold;
-  }
 
   join-cards {
     background-color: #001F3F;
@@ -100,12 +52,6 @@ h3 {
     margin: 10px;
     text-align: center;
     align-items: center;
-  }
-
-  .counting-number {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
   }
   
   .number {
@@ -160,13 +106,13 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
   max-width: $honeycomb-max-width;
   margin: 0 auto;
   padding: 0;
-  transform: translateY(#{$hexagon-height/4});
+  transform: translateY(#{calc($hexagon-height/4)});
 
   &-cell {
     flex: 0 1 $hexagon-width;
     max-width: $hexagon-width;
     height: $hexagon-height;
-    margin: $hexagon-height/2.1 $hexagon-margin/2 $hexagon-margin;
+    margin: calc($hexagon-height/2.1) calc($hexagon-margin/2) $hexagon-margin;
     position: relative;
     padding: 0.5em;
 
@@ -246,20 +192,20 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
     display:none;
     opacity: 0;
     width: $hexagon-width;
-    margin: 0 $hexagon-margin/2;
+    margin: 0 calc($hexagon-margin/2);
   }
 }
 
 @media (max-width:#{2*$viewport-thereshold}){
   .honeycomb-cell {
-    margin: #{$hexagon-margin/2 + $hexagon-height/2} $hexagon-margin;
+    margin: #{calc($hexagon-margin/2) + calc($hexagon-height/2)} $hexagon-margin;
   }
 }
 
 @media (min-width: #{2*$viewport-thereshold}) and (max-width:#{3*$viewport-thereshold}){
   .honeycomb-cell:nth-child(3n) {
-    margin-right: calc(50% - #{$hexagon-width/2});
-    margin-left: calc(50% - #{$hexagon-width/2});
+    margin-right: calc(50% - #{calc($hexagon-width/2)});
+    margin-left: calc(50% - #{calc($hexagon-width/2)});
   }
 
   .honeycomb__placeholder:nth-child(3n + 5) {

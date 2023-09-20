@@ -18,7 +18,7 @@ $viewport-thereshold: $hexagon-width + $hexagon-margin;
     max-width: $hexagon-width;
     height: $hexagon-height;
     width: $hexagon-width;
-    margin: $hexagon-height/2.1 $hexagon-margin/2 $hexagon-margin;
+    margin: calc($hexagon-height/2.1) calc($hexagon-margin/2) $hexagon-margin;
     position: relative;
     padding: 0.5em;
 
