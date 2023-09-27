@@ -1,0 +1,6 @@
+<div class="service" [ngStyle]="{'border': isHovered ? '2px solid ' + service.color : '2px solid white' }" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <mat-icon class="icon" [style.color]="service.color">{{ service.icon }}</mat-icon>
+    <h4 [style.color]="service.color">{{ service.title }}</h4>
+    <p class="card-content">{{ service.content }}</p>
+    <a href="#" class="cta">Read More <span class="ti-angle-right"></span></a>
+  </div>

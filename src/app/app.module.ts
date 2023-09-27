@@ -21,6 +21,8 @@ import { GadgetComponent } from './components/gadgets/gadgets.component';
 import { CommunityMembersGagdetComponent } from './components/gadgets/community-members-gagdet/community-members-gagdet.component';
 import { TopVotingsGagdetComponent } from './components/gadgets/top-votings-gagdet/top-votings-gagdet.component';
 import { FinanceStatusGagdetComponent } from './components/gadgets/finance-status-gagdet/finance-status-gagdet.component';
+import { MembershipCardComponent } from './components/body/join-cards/membership-card/membership-card.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { FinanceStatusGagdetComponent } from './components/gadgets/finance-statu
     CommunityMembersGagdetComponent,
     TopVotingsGagdetComponent,
     FinanceStatusGagdetComponent,
+    MembershipCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,11 +49,13 @@ import { FinanceStatusGagdetComponent } from './components/gadgets/finance-statu
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatIconModule,
   ],
   providers: [
     VotingService,
     SharedService,
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
