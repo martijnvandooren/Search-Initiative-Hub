@@ -38,10 +38,14 @@ export class VotingService {
   }
 
   getTotalVotesOfSubject(subjectId: number): number {
-    return this.exampleSubjects[subjectId].numberOfTotalVotes();
+    let subject = this.exampleSubjects.find(i => i.id === subjectId);
+    if (subject) return subject.numberOfTotalVotes();
+    else return 0;
   }
 
   getHighesVotingOption(subjectId: number) : VotingOption {
-    return this.exampleSubjects[subjectId].mostVotedOption()
+    let subject = this.exampleSubjects.find(i => i.id === subjectId);
+    if (subject) return subject.mostVotedOption();
+    else return new VotingOption(subjectId,"","",0)
   }
 }

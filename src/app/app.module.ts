@@ -23,6 +23,15 @@ import { TopVotingsGagdetComponent } from './components/gadgets/top-votings-gagd
 import { FinanceStatusGagdetComponent } from './components/gadgets/finance-status-gagdet/finance-status-gagdet.component';
 import { MembershipCardComponent } from './components/body/join-cards/membership-card/membership-card.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SideMenuItemComponent } from './components/secure/side-menu-item/side-menu-item.component';
+import { MatListModule } from '@angular/material/list';
+import { ProjectDashboardComponent } from './components/secure/project-dashboard/project-dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { ResearchDashboardComponent } from './components/secure/research-dashboard/research-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +51,9 @@ import { MatIconModule } from '@angular/material/icon';
     TopVotingsGagdetComponent,
     FinanceStatusGagdetComponent,
     MembershipCardComponent,
+    SideMenuItemComponent,
+    ProjectDashboardComponent,
+    ResearchDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +62,12 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
   ],
   providers: [
     VotingService,

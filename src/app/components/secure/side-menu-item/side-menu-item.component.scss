@@ -1,0 +1,20 @@
+.item {
+    margin-bottom: 4px;
+    border-top: 1px solid orange;
+    border-top-right-radius: 10px;
+}
+
+.title {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.description {
+    font-size: small;
+    margin-left: 10px;
+}
+
+.item:hover { 
+    background-color: orange;
+    color: black;
+}

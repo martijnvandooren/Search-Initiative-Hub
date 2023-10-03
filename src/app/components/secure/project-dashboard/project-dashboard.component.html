@@ -1,0 +1,25 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Projects</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header class="header">
+          <mat-card-title>
+            <span class="title">{{card.title}}</span>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+            <p class="inner">Here comes a description of the project, what tech needs to be research, estimated costs, which goal will be achieved, etc. etc.</p>
+            <img mat-card-image class="inner" src="{{card.imageSource}}" alt="{{card.imageAlt}}">
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -12,12 +12,17 @@
 }
 
 .voting-subject {
+    border-top: 2px solid white;
+    border-top-right-radius: 30px;
     margin-left: 20px;
     margin-bottom: 50px;
 }
 
 .voting-option {
     margin-left: 20px;
+    border-top: 2px solid orange;
+    border-top-right-radius: 20px;
+    margin-top: 10px;
 }
 
 .voting-bar {

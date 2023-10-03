@@ -1,0 +1,46 @@
+img{
+  max-height: 100%;
+  max-width: 100%;
+}
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  background-color:darkslategrey;
+  background-blend-mode: color-dodge;
+}
+
+.header{
+  background-color: white;
+  color: black;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  align-content: center;
+  text-align: center;
+  text-overflow: clip;
+  margin: 10px;
+}
+
+.inner {
+  text-align: center;
+  overflow-wrap: break-word;
+  display:flex;
+}
+
+.title {
+  font-size: larger;
+  font-weight: bold;
+}

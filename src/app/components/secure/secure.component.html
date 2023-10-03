@@ -1,2 +1,13 @@
-<p>secure works!</p>
-<app-voting></app-voting>
+<mat-drawer-container class="page-container" autosize>
+    <mat-drawer class="example-sidenav" mode="side" opened>
+      <h2 class="options">SPACES</h2>
+      <mat-list>
+        <app-side-menu-item *ngFor="let menuItem of sideMenuItems" [menuitem] = menuItem></app-side-menu-item>
+      </mat-list>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+        <app-voting></app-voting>
+        <app-project-dashboard></app-project-dashboard>
+    </div>
+</mat-drawer-container>
